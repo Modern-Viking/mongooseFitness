@@ -7,9 +7,9 @@ This Website is a fitness tracker using Mongo, Mongoose, and Express
 
 ## Contents
 * Landing Page
-![LandingPage]()
+![LandingPage](https://github.com/Modern-Viking/mongooseFitness/blob/master/public/assets/images/landingPage.jpg?raw=true)
 * Workout Dashboard
-![WorkoutDashboard]()
+![WorkoutDashboard](https://github.com/Modern-Viking/mongooseFitness/blob/master/public/assets/images/workoutDashboard.jpg?raw=true)
 
 ## Instructions
 Create a New Workout on the main landing page or continue your current workout.  You can also click on the dashboard link in the upper left corner to view the workout dashboard.
