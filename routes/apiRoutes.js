@@ -1,44 +1,47 @@
+const db = require("../models")
+
 module.exports = function (app) {
-    const Workout = require("../models/workout");
 
-    app.get( "/api/workouts", (req,res) => {
-        Workout.find({})
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-            res.json(err);
-        });
-    });
+    app.get("/api/workouts", function (req, res) {
+        db.Workout.find({})
+            .then(function (workouts) {
+                res.json(workouts)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    })
 
-    app.put("/api/workouts/:id", (req,res) => {
-        Workout.findByIdAndUpdate(req.params.id, { $push: {excercises: req.body} })
-        .then(db => {
-            res.json(db);
-        })
-        .catch(err  => {
-            res.json(err);
-        });
-    });
+    app.post("/api/workouts", function (req, res) {
+        db.Workout.create({})
+            .then(function (workouts) {
+                res.json(workouts)
+            })
+            .catch(function (err) {
+                console.log(err)
+            })
+    })
 
-    app.post("/api/workouts", (req,res) => {
-        console.log("req", body);
-        Workout.create(body)
-        .then(db => {
-            res.json(db);
+    app.put("/api/workouts/:id", function (req, res){
+        console.log(req.body)
+        db.Workout.where('_id', req.params.id).update({$push: {"exercises": req.body}})
+        .then(function(results){
+            res.json(results)
         })
-        .catch(err => {
-            res.json(err);
-        });
-    });
+        .catch(function (err) {
+            console.log(err)
+        })
+    })
 
-    app.get("/api/workouts/range",  (req,res) => {
-        Workout.find({})
-        .then(data => {
-            res.send(data);
+    app.get("/api/workouts/range", function(req, res){
+        db.Workout.find({})
+        .then(function (workouts) {
+            res.json(workouts)
         })
-        .catch(err => {
-            res.json(err);
-        });
-    });
+        .catch(function (err) {
+            console.log(err)
+        })
+    })
+
+
 };
