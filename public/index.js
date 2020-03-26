@@ -19,7 +19,6 @@ let shouldNavigateAway = false;
 
 init();
 
-//fixed code from Jackson
 async function init() {
   if (location.pathname.includes("/exercise") && location.search.split("=")[1] === undefined) {
     console.log("excersise")
